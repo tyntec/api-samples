@@ -1,0 +1,7 @@
+{
+  "port": 7777,
+  "debug": false,
+  "tyntecApikey": "your TynTec api key",
+  "tyntecBaseUrl": "https://api.tyntec.com/chat-api/v2",
+  "projectId": "your-dialogflow-projectid"
+}
