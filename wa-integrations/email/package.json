@@ -1,0 +1,18 @@
+{
+  "name": "mail-demo",
+  "version": "0.0.1",
+  "description": "Demo app used to bridge tyntec API with mail transport",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "imap-simple": "^5.0.0",
+    "mailparser": "^2.7.7",
+    "nodemailer": "^6.4.6"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node"
+  ]
+}
