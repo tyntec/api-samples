@@ -1,0 +1,4 @@
+{
+  "events": [ "message" ],
+  "url": "https://<YOUR_SERVER>/whatsAppTrigger"
+}
