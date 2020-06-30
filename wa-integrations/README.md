@@ -1,8 +1,8 @@
-# API Samples
+# API Samples | WhatsApp Integrations
 
-Collection of sample applications showcasing integration with WhatsApp via tyntec Conversation
+Collection of sample applications showcasing integrations with WhatsApp via tyntec Conversation API
 
-- dialogflow - integration into dialogflow
+- dialogflow - integration with Dialogflow
 - email - simple mail proxy
-- freshdesk - integration into freshdesk
-- hubspot - integration into hubspot
+- freshdesk - integration with Freshdesk
+- hubspot - integration with HubSpot
