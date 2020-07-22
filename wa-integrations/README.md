@@ -6,3 +6,4 @@ Collection of sample applications showcasing integrations with WhatsApp via tynt
 - email - simple mail proxy
 - freshdesk - integration with Freshdesk
 - hubspot - integration with HubSpot
+- slack - integration with Slack
