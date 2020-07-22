@@ -1,0 +1,30 @@
+{
+  "name": "tyntec-viber-sample-application",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "body-parser": "^1.18.3",
+    "axios": "^0.19.2",
+    "imap-simple": "^5.0.0",
+    "mailparser": "^2.7.7",
+    "dotenv": "^8.2.0",
+    "nodemailer": "^6.4.10"
+  },
+  "engines": {
+    "node": "6.10.x"
+  },
+  "author": "tyntec",
+  "license": "MIT",
+  "description": "A sample application to show two way integration between Viber and email using tyntec Conversation API",
+  "keywords": [
+    "viber",
+    "tyntec",
+    "email",
+    "tyntec-integration"
+  ]
+}
