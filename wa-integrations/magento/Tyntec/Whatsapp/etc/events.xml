@@ -1,0 +1,5 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_place_after">
+        <observer name="Tyntec_Whatsapp_Orderplaceafter" instance="Tyntec\Whatsapp\Observer\Orderplaceafter" />
+    </event>
+</config>
