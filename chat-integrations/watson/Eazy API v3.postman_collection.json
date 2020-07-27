@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "9572ed6f-9029-43fa-9d99-c43ca5922e7e",
+		"name": "Eazy API v3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Set Webhook",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"events\": [\n        \"message\"\n    ],\n    \"url\": \"https://YOUR_SERVER/message\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://api.eazy.im/v3/channels/{{wabaNumber}}@whatsapp.eazy.im/webhooks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"eazy",
+						"im"
+					],
+					"path": [
+						"v3",
+						"channels",
+						"{{wabaNumber}}@whatsapp.eazy.im",
+						"webhooks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Assistant",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.eazy.im/v3/companies/{{companyId}}/assistants",
+					"protocol": "https",
+					"host": [
+						"api",
+						"eazy",
+						"im"
+					],
+					"path": [
+						"v3",
+						"companies",
+						"{{companyId}}",
+						"assistants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Company ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.eazy.im/v3/companies/current",
+					"protocol": "https",
+					"host": [
+						"api",
+						"eazy",
+						"im"
+					],
+					"path": [
+						"v3",
+						"companies",
+						"current"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{eazyApiKey}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "b0c0ce65-37f0-480e-bbd1-136c8ba6b291",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "16f42d5f-0f4d-4bbb-98ab-e01c45ab1e66",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "669de62a-8167-4b47-985a-90d3908e06f8",
+			"key": "apiKey",
+			"value": ""
+		},
+		{
+			"id": "b4904b78-8883-4994-a6e9-fdb6a6f55589",
+			"key": "wabaNumber",
+			"value": ""
+		}
+	],
+	"protocolProfileBehavior": {}
+}
