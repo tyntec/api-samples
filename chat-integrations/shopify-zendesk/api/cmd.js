@@ -4,7 +4,7 @@ const Axios = require('axios')
 
 const headers = {
   'Content-Type': 'application/json',
-  Authorization: 'Bearer ' + process.env.EAZY_API_KEY
+  Authorization: 'Bearer ' + process.env.CMD_API_KEY
 }
 const jidTail = '@whatsapp.eazy.im'
 const channelJid = process.env.WABA_NUMBER + jidTail

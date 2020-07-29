@@ -1,7 +1,7 @@
 'use strict'
 const Zendesk = require('../models/zendesk')
 // const Axios = require('axios')
-const Eazy = require('../api/eazy')
+const CMD = require('../api/cmd')
 const handleError = require('../errorHandler').handleError
 
 async function createTicket (data) {
@@ -9,7 +9,7 @@ async function createTicket (data) {
     const newTicket = new Zendesk(data)
     const res = await newTicket.save()
     if (res) {
-      await Eazy.whatsAppNoteZendesk(res)
+      await CMD.whatsAppNoteZendesk(res)
     }
     return res
   } catch (e) {

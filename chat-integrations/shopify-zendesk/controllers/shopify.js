@@ -2,7 +2,7 @@
 
 const ShopifyOrders = require('../models/shopifyOrders')
 const ShopifyCustomers = require('../models/shopifyCustomers')
-const Eazy = require('../api/eazy')
+const CMD = require('../api/cmd')
 const handleError = require('../errorHandler').handleError
 
 async function createCustomer (data) {
@@ -51,7 +51,7 @@ async function createOrder (data) {
       res.phone = result.phone
     }
     if (res) {
-      await Eazy.whatsAppNoteShopify(res)
+      await CMD.whatsAppNoteShopify(res)
     }
     return res
   } catch (e) {

@@ -12,7 +12,7 @@ exports.sendMessageToWhatsapp = async (to, text) => {
   const url = `https://api.eazy.im/v3/channels/${channelJid}/messages/${to}`;
   const headers = {
     "content-type": "application/json",
-    Authorization: "Bearer " + appConfig.EAZY_API_KEY
+    Authorization: "Bearer " + appConfig.CMD_API_KEY
   };
   const data = {
     message: {
