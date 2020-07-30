@@ -24,5 +24,5 @@ exports.sendMessageToWhatsapp = async (to, text) => {
 		.post(url, data, {
 			headers: headers,
 		})
-		.catch((err) => console.log(err.response.status));
+		.catch((err) => console.log(err.response.status, err.response.statusText));
 };
