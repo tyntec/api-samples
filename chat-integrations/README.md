@@ -7,3 +7,7 @@ Collection of sample applications showcasing integrations via Chat Messaging Das
 - shopify-zendesk - integration of notes with Shopify and Zendesk
 - watson - integration of conversations with IBM Watson Assistant
 - zohocrm - integration of remarks with Zoho CRM
+
+## Utilities
+
+CMD Postman Collection - Collection of self-service requests for the Postman
