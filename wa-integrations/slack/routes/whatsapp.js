@@ -30,7 +30,7 @@ Router.route('/forwardWAMessage').post(async function (req, res) {
         {
           phone: req.body.from,
           name: req.body.whatsapp.senderName,
-          thread_ts: "no thread assigned"+req.body.from
+          thread_ts: "no thread assigned" + req.body.from
         });
       console.log('Contact created:', contact.name);
     } catch (err) {
