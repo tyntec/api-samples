@@ -6,7 +6,7 @@ const Contacts = require('../models/contacts');
 const SlackChannels = require('../models/slackChannels');
 const handleError = require('../errorHandler').handleError;
 const appConfig = require('../config');
-const _ = require("lodash")
+const _ = require('lodash')
 
 const slackHeaders = {
   'Content-Type': 'application/json;charset=utf-8',
@@ -30,7 +30,7 @@ Router.route('/forwardWAMessage').post(async function (req, res) {
         {
           phone: req.body.from,
           name: req.body.whatsapp.senderName,
-          thread_ts: "no thread assigned" + req.body.from
+          thread_ts: 'no thread assigned' + req.body.from
         });
       console.log('Contact created:', contact.name);
     } catch (err) {
@@ -45,7 +45,7 @@ Router.route('/forwardWAMessage').post(async function (req, res) {
     text: `*${req.body.whatsapp.senderName}*: ${req.body.content.text}`,
   };
 
-  if (!_.startsWith(contact.thread_ts, "no thread assigned")) {
+  if (!_.startsWith(contact.thread_ts, 'no thread assigned')) {
     inputBody.thread_ts = contact.thread_ts;
     console.log('Thread found');
   }
@@ -54,7 +54,7 @@ Router.route('/forwardWAMessage').post(async function (req, res) {
     // Send request to Slack
     const slackRes = await Axios.post(url, inputBody, { headers: slackHeaders });
     console.log('Slack res:', slackRes.data);
-    if (_.startsWith(contact.thread_ts, "no thread assigned")) {
+    if (_.startsWith(contact.thread_ts, 'no thread assigned')) {
       Contacts.findOneAndUpdate({ phone: contact.phone }, { $set: { thread_ts: slackRes.data.ts } }, function (err, doc) {
         if (err) {
           res.status(500).send('DB error');
