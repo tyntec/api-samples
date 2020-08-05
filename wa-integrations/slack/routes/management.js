@@ -5,7 +5,7 @@ const Contact = require('../models/contacts');
 const appConfig = require('../config');
 
 Router.post("/", async function(req, resp) {
-    if(appConfig.RESET_TOKEN != req.headers['x-reset-token']) {        
+    if (appConfig.RESET_TOKEN != req.headers['x-reset-token']) {        
         resp.status(401).send("Unauthorized");
         return;
     } 
