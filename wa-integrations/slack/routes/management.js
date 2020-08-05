@@ -4,9 +4,9 @@ const Contact = require('../models/contacts');
 
 const appConfig = require('../config');
 
-Router.post("/", async function(req, resp) {
+Router.post('/', async function(req, resp) {
     if (appConfig.RESET_TOKEN != req.headers['x-reset-token']) {        
-        resp.status(401).send("Unauthorized");
+        resp.status(401).send('Unauthorized');
         return;
     } 
     Channel.deleteMany({}, function(err) {
@@ -16,6 +16,6 @@ Router.post("/", async function(req, resp) {
     Contact.deleteMany({}, function (err) {
       console.log(err);
     })
-    resp.status(200).send("ok");
+    resp.status(200).send('ok');
   })
   module.exports = Router;
