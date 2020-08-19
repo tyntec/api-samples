@@ -84,7 +84,7 @@ Router.post('/forwardSlackMessage', async function (req, res) {
 
   // Slack event data -- combi of https://api.slack.com/events/message, https://api.slack.com/types/event
   // Message events
-  if (input.event.type === 'message' && !input.event.bot_id) {
+  if (input.event.type === 'message' && input.event.subtype !== 'file_share' && !input.event.bot_id) {
     if (input.event.thread_ts) {
       console.log('Thread response');
       const contact = await Contact.findOne({ thread_ts: input.event.thread_ts });
