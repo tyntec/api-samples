@@ -1,41 +1,43 @@
-'use strict'
+'use strict';
 
-const Express = require('express')
-const BodyParser = require('body-parser')
-const Mongoose = require('mongoose')
-const cors = require('cors')
-const dotenv = require('dotenv')
-const App = Express()
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const appConfig = require('./config');
+const routes = require('./routes');
 
-dotenv.config()
-const Port = process.env.PORT || 3000;
+async function bootstrap() {
+  const app = express();
+  const port = appConfig.PORT;
 
-(async () => {
   // Middlewares
-  App.use(cors())
-  App.use(
-    BodyParser.urlencoded({
-      extended: false
+  app.use(cors());
+  app.use(
+    bodyParser.urlencoded({
+      extended: false,
     })
-  )
-  App.use(BodyParser.json())
+  );
+  app.use(bodyParser.json());
 
   // Use API routes in the App
-  require('./routes')(App)
+  routes(app);
 
   // Connect to Mongoose database
   try {
-    await Mongoose.connect(process.env.MONGO_URL || 'mongodb://127.0.0.1:27017', {
+    await mongoose.connect(appConfig.MONGO_URL, {
       useNewUrlParser: true,
       useFindAndModify: false,
-      useUnifiedTopology: true
-    })
-    console.log('DB connected successfully')
-    // Start the server
-    App.listen(Port, () => {
-      console.log(`Server running on port ${Port}`)
-    })
+      useUnifiedTopology: true,
+    });
+    console.log('DB connected successfully');
   } catch (e) {
-    console.log('Problem while connecting to DB')
+    console.log(`Problem while connecting to DB... Error: ${e}`);
   }
-})()
+
+  // Start the server
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+}
+bootstrap();
