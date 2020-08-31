@@ -10,7 +10,6 @@ const routes = require('./routes');
 async function bootstrap() {
   const app = express();
   const port = appConfig.PORT;
-
   // Middlewares
   app.use(cors());
   app.use(

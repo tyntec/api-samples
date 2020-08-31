@@ -2,7 +2,6 @@
 
 const Axios = require('axios')
 const appConfig = require('../config');
-
 const headers = {
   'Content-Type': 'application/json',
   Authorization: 'Bearer ' + appConfig.CMD_API_KEY
