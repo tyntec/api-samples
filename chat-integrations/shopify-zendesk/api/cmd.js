@@ -1,13 +1,13 @@
 'use strict'
 
 const Axios = require('axios')
-
+const appConfig = require('../config');
 const headers = {
   'Content-Type': 'application/json',
-  Authorization: 'Bearer ' + process.env.CMD_API_KEY
+  Authorization: 'Bearer ' + appConfig.CMD_API_KEY
 }
 const jidTail = '@whatsapp.eazy.im'
-const channelJid = process.env.WABA_NUMBER + jidTail
+const channelJid = appConfig.WABA_NUMBER + jidTail
 const re = /[+ ]/g
 
 // POST https://api.eazy.im/v3/channels/{channelJid}/contacts/{contactJid}/notes
@@ -34,7 +34,7 @@ async function whatsAppNoteShopify (data) {
   const contactJid = data.phone.replace(re, '') + jidTail
   const url = `https://api.eazy.im/v3/channels/${channelJid}/contacts/${contactJid}/notes`
   const inputBody = {
-    body: `<strong>Shopify</strong><br>Order <a href='https://${process.env.SHOPIFY_DOMAIN}/admin/orders/${data.order_id}'>#${data.order_number}</a> placed`
+    body: `<strong>Shopify</strong><br>Order <a href='https://${appConfig.SHOPIFY_DOMAIN}/admin/orders/${data.order_id}'>#${data.order_number}</a> placed`
   }
   const response = await Axios.post(url, inputBody, { headers })
   return response.body
