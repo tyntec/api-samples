@@ -95,7 +95,7 @@ async function postMediaMessage (channel, contact, req, res) {
     url: req.body.content.media.url,
     method: 'GET',
     responseType: 'stream',
-    headers: headers 
+    headers: tyntecHeaders 
   })
     .then((response) => {
       const formData = new FormData();
