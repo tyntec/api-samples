@@ -9,7 +9,7 @@ exports.sendMessageToWhatsapp = async (to, text) => {
 		`sendMessageToWhatsapp- from ${channelJid} -to ${to} text--- ${text}`
 	);
 
-	const url = `https://api.eazy.im/v3/channels/${channelJid}/messages/${to}`;
+	const url = `https://api.cmd.tyntec.com/v3/channels/${channelJid}/messages/${to}`;
 	const headers = {
 		'content-type': 'application/json',
 		Authorization: 'Bearer ' + appConfig.CMD_API_KEY,
