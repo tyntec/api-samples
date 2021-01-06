@@ -9,7 +9,7 @@
     "dialogflow": "^0.14.0",
     "express": "^4.17.1",
     "express-joi-validation": "^4.0.3",
-    "lodash": "^4.17.15"
+    "lodash": "^4.17.19"
   },
   "scripts": {
     "start": "GOOGLE_APPLICATION_CREDENTIALS=./dialogflowCredentials.json node ./src/index.js"
