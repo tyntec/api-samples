@@ -1,6 +1,6 @@
-# API Samples | Chat Messaging Dashboard Integrations
+# API Samples | Support Inbox Integrations
 
-Collection of sample applications showcasing integrations via Chat Messaging Dashboard (Eazy) API
+Collection of sample applications showcasing integrations via Support Inbox API (Chat Messaging Dashboard, Eazy)
 
 ## WhatsApp channel
 
@@ -14,4 +14,4 @@ Collection of sample applications showcasing integrations via Chat Messaging Das
 
 ## Utilities
 
-CMD Postman Collection - Collection of self-service requests for the Postman
+CMD Postman Collection - Collection of self-service requests for the Support Inbox API in Postman
