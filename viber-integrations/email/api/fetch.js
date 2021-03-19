@@ -58,6 +58,7 @@ module.exports = async (_, response) => {
           channels: ["viber"],
           viber: {
             from: process.env.VIBER_ID,
+            messagePurpose: "transaction",
             components: [
               {
                 type: "text",
