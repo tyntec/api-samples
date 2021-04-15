@@ -31,12 +31,12 @@ async function sendWAMessage(phoneNumber, messageText, res) {
     apikey: appConfig.TYNTEC_API_KEY,
   };
 
-  const url = 'https://api.tyntec.com/chat-api/v2/messages';
+  const url = 'https://api.tyntec.com/conversations/v3/messages';
   const inputBody = {
     to: phoneNumber,
-    channels: ['whatsapp'],
-    whatsapp: {
-      from: appConfig.TYNTEC_WABA_NUMBER,
+    from: appConfig.TYNTEC_WABA_NUMBER,
+    channel: 'whatsapp',
+    content: {
       contentType: 'text',
       text: messageText,
     },
