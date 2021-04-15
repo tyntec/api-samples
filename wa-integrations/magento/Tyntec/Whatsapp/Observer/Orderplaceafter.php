@@ -21,7 +21,7 @@ class Orderplaceafter implements ObserverInterface
     $this->logger = $logger;
     try {
       $this->client = new Client();
-      $this->request = new Request('POST', 'https://api.tyntec.com/chat-api/v2/messages');
+      $this->request = new Request('POST', 'https://api.tyntec.com/conversations/v3/messages');
       $this->logger->debug('tyntec Observer: instantiated');
     } catch (Throwable $e) {
       $this->logger->debug('tyntec Observer: error in constructor: ', $e->getMessage(), "\n");
@@ -53,22 +53,21 @@ class Orderplaceafter implements ObserverInterface
       // Template message json body -- use your own template!
       $options['json'] = [
         'to' => $phone,
-        'channels' => [0 => 'whatsapp'],
-        'whatsapp' => [
-          'from' => $_ENV['WABA_NUMBER'],
+        'from' => $_ENV['WABA_NUMBER'],
+        'channel' => 'whatsapp',
+        'content' => [
           'contentType' => 'template',
           'template' => [
-            'templateId' => 'account_verification',
-            'language' => ['code' => 'en'],
+            'templateId' => '<YOUR_TEMPLATE_ID>',
+            'templateLanguage' =>  'en',
             'components' => [
-              ['type' => 'body',
-              'parameters' => [
-                ['type'=>'text', 'text'=>'order'],
+              ['body'=> [
                 ['type'=>'text', 'text'=>$orderNumber]
-              ]]
+              ]
+              ]
             ]
           ]
-        ]
+          ]
       ];
 
       // Execute the request
