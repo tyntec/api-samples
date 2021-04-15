@@ -97,12 +97,12 @@ Router.post('/forwardSlackMessage', async function (req, res) {
 
       console.log('Contact found by thread', contact.name);
 
-      const url = 'https://api.tyntec.com/chat-api/v2/messages';
+      const url = 'https://api.tyntec.com/conversations/v3/messages';
       const inputBody = {
         to: contact.phone,
-        channels: ['whatsapp'],
-        whatsapp: {
-          from: appConfig.WABA,
+        channel: 'whatsapp',
+        from: appConfig.WABA,
+        content: {
           contentType: 'text',
           text: input.event.text,
         },
