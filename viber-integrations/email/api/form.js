@@ -30,22 +30,17 @@ module.exports = async (request, response) => {
 
     const sendMessage = {
       to: request.body.phone,
-      channels: ["viber"],
-      viber: {
-        from: process.env.VIBER_ID,
-        messagePurpose: "promotional",
-        components: [
-          {
-            type: "text",
-
-            //This is the initial message,
-            text: `Hi ${request.body.name}, You are in! Thank you for signing up and welcome.`
-          }
-        ]
+      channel: "viber",
+      from: process.env.VIBER_ID,
+      messagePurpose: "promotion",
+      content: {
+        type: "text",
+        //This is the initial message,
+        text: `Hi ${request.body.name}, You are in! Thank you for signing up and welcome.`
       }
     };
     await axios.post(
-      "https://api.tyntec.com/chat-api/v2/messages",
+      "https://api.tyntec.com/conversations/v3/messages",
       sendMessage,
       tyntecApiHeaders
     );
