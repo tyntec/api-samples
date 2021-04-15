@@ -53,14 +53,14 @@ module.exports = async (_, response) => {
         const reply = mail.text.split('\n')[0];
         const sendMessage = {
           to: parsedSubject[1],
-          channels: ["whatsapp"],
-          whatsapp: {
-            from: process.env.WABA_NUMBER,
+          channel : "whatsapp",
+          from: process.env.WABA_NUMBER,
+          content: {
             text: reply,
             contentType: "text"
           }
         }
-        await axios.post("https://api.tyntec.com/chat-api/v2/messages", sendMessage, tyntecApiHeaders)
+        await axios.post("https://api.tyntec.com/conversations/v3/messages", sendMessage, tyntecApiHeaders)
       });
     });
     response.status(200).send('Mail has been fetched. ' + results.length + ' email(s) forwarded.');

@@ -24,27 +24,27 @@ module.exports = async (request, response) => {
 
     const sendMessage = {
       to: request.body.phone,
-      channels: ["whatsapp"],
-      whatsapp: {
-        from: process.env.WABA_NUMBER,
+      from: process.env.WABA_NUMBER,
+      channel: "whatsapp",
+      content: {
+        contentType: "template",
         template: {
           templateId: "welcome_message",
-          language: {
-            policy: "deterministic",
-            code: "en"
-          },
-          components: [
-            {
-              type: "body",
-              parameters: [{type: "text", text: request.body.name}]
-            }
-          ]
+          templateLanguage: "en",
+          components: {
+            body : [
+              {
+                type: "text", 
+                text: request.body.name
+              }
+            ]
+          }
         },
-        contentType: "template"
+       
       }
     };
 
-    await axios.post("https://api.tyntec.com/chat-api/v2/messages", sendMessage, tyntecApiHeaders)
+    await axios.post("https://api.tyntec.com/conversations/v3/messages", sendMessage, tyntecApiHeaders)
 
     await transporter.sendMail({
       from: process.env.ADMIN_EMAIL,
