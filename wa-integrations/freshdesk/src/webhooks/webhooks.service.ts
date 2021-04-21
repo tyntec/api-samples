@@ -102,10 +102,10 @@ export class WebhooksService {
     parameters: string[],
   ): Promise<axios.AxiosResponse<any>> {
     const baseUrl = 'https://api.tyntec.com/conversations/v3/';
-    const componentParameterData = {};
+    const componentParameterData = [];
 
     if (parameters) {
-      for (const parameter of parameters) {
+      for (const parameter of parameters){
         componentParameterData.push({
           text: parameter,
           type: 'text',
@@ -123,9 +123,7 @@ export class WebhooksService {
           templateId: 'appointment_confirmation',
           templateLanguage: 'en',
           components: {
-            body: {
-              componentParameterData
-            }
+            body: componentParameterData
         }
         }
       },
@@ -175,12 +173,8 @@ interface WhatsAppData {
       templateId: string;
       templateLanguage: string;
       components: {
-        body: {
-          parameters: {
-            text: string;
-            type: string;
-          };
-        },
+        body: [
+        ]
       };
     };
   };
