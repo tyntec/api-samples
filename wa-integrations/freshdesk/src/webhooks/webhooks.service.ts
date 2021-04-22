@@ -165,7 +165,7 @@ export class WebhooksService {
 // interface of the specific WA schema
 interface WhatsAppData {
   to: string;
-  channels: string;
+  channel: string;
   from: string;
   content: { 
     contentType: string;
@@ -173,8 +173,11 @@ interface WhatsAppData {
       templateId: string;
       templateLanguage: string;
       components: {
-        body: [
-        ]
+        body: {
+          text: string;
+          type: string;
+        }[];
+        
       };
     };
   };
