@@ -1,17 +1,14 @@
 const express = require('express');
-const { createValidator } = require('express-joi-validation');
 const dialogflow = require('dialogflow');
-const { messageSchema } = require('./schemas');
-const whatsappClient = require('./tyntec');
-const { trendsHandler } = require('./trendsIntent');
-const { availabilityHandler } = require('./availabilityIntent');
-const { priceHandler } = require('./priceIntent');
-const config = require('../config.json');
-
+const whatsappClient = require('./api/tyntec');
+const { trendsHandler } = require('./intents/trendsIntent');
+const { availabilityHandler } = require('./intents/availabilityIntent');
+const { priceHandler } = require('./intents/priceIntent');
+const { appConfig } = require('./config/appConfig');
 
 const messageHandler = async (req, res) => {
   try {
-    const projectId = config.projectId;
+    const projectId = appConfig.projectId;
     const sessionId = req.body.from;
     const sessionClient = new dialogflow.SessionsClient();
     const sessionPath = sessionClient.sessionPath(projectId, sessionId);
@@ -46,10 +43,9 @@ const messageHandler = async (req, res) => {
         response = {
           text: result[0].queryResult.fulfillmentText,
         };
-
     }
 
-    if (config.debug) {
+    if (appConfig.debug=0) {
       console.log(require('util').inspect(response, false, 15));
     } else {
       await whatsappClient.sendWhatsappTextMessage({
@@ -59,6 +55,7 @@ const messageHandler = async (req, res) => {
       });
       if (response.pictures) {
         for (const picture of response.pictures) {
+          console.log(picture)
           await whatsappClient.sendWhatsappImage({
             from: req.body.to,
             to: req.body.from,
@@ -69,19 +66,13 @@ const messageHandler = async (req, res) => {
     }
 
     res.status(204).send();
-
   } catch (e) {
     console.error(e);
     res.status(500).send(e);
   }
-}
+};
 
-const validator = createValidator();
 const app = express();
 app.use(express.json());
-app.post('/callback/message', validator.body(messageSchema), messageHandler);
-app.listen(config.port, () => console.log(`Server listening on port ${config.port}.`));
-
-module.exports = {
-  config,
-};
+app.post('/callback/message', messageHandler);
+app.listen(appConfig.port, () => console.log(`Server listening on port ${appConfig.port}.`));
