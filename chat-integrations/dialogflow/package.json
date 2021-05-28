@@ -1,0 +1,18 @@
+{
+  "name": "tyntec-whatsapp-dialogflow-demo",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@hapi/joi": "^16.1.8",
+    "axios": "^0.21.1",
+    "dialogflow": "^0.14.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-joi-validation": "^4.0.3",
+    "lodash": "^4.17.19"
+  },
+  "scripts": {
+    "start": "GOOGLE_APPLICATION_CREDENTIALS=./dialogflowCredentials.json node ./index.js"
+  }
+}
