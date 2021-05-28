@@ -6,7 +6,7 @@
     "axios": "^0.21.1",
     "imap-simple": "^5.0.0",
     "mailparser": "^2.7.7",
-    "nodemailer": "^6.4.6"
+    "nodemailer": "^6.4.16"
   },
   "engines": {
     "node": "10.x"
