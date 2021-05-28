@@ -101,36 +101,31 @@ export class WebhooksService {
     customerPhone: string,
     parameters: string[],
   ): Promise<axios.AxiosResponse<any>> {
-    const baseUrl = 'https://api.tyntec.com/chat-api/v2';
+    const baseUrl = 'https://api.tyntec.com/conversations/v3/';
     const componentParameterData = [];
 
     if (parameters) {
-      for (const parameter of parameters) {
+      for (const parameter of parameters){
         componentParameterData.push({
           text: parameter,
           type: 'text',
         });
-      }
+      } // solve
     }
 
     const data: WhatsAppData = {
       to: customerPhone,
-      channels: ['whatsapp'],
-      whatsapp: {
-        from: process.env.WABA_NUMBER,
+      from: process.env.WABA_NUMBER,
+      channel : "whatsapp",
+      content: {
         contentType: 'template',
         template: {
-          language: {
-            code: 'en',
-          },
           templateId: 'appointment_confirmation',
-          components: [
-            {
-              parameters: componentParameterData,
-              type: 'body',
-            },
-          ],
-        },
+          templateLanguage: 'en',
+          components: {
+            body: componentParameterData
+        }
+        }
       },
     };
 
@@ -146,13 +141,14 @@ export class WebhooksService {
     customerPhone: string,
     publicNote: string,
   ) {
-    const baseUrl = 'https://api.tyntec.com/chat-api/v2';
+    const baseUrl = 'https://api.tyntec.com/conversations/v3/';
 
     const data = {
       to: customerPhone,
-      channels: ['whatsapp'],
-      whatsapp: {
-        from: process.env.WABA_NUMBER,
+      from: process.env.WABA_NUMBER,
+      channel: 'whatsapp',
+      content: {
+        
         text: publicNote,
         contentType: 'text',
       },
@@ -169,24 +165,20 @@ export class WebhooksService {
 // interface of the specific WA schema
 interface WhatsAppData {
   to: string;
-  channels: string[];
-  whatsapp: {
-    from: string;
+  channel: string;
+  from: string;
+  content: { 
     contentType: string;
     template: {
-      language: {
-        code: string;
-      };
       templateId: string;
-      components: [
-        {
-          parameters: {
-            text: string;
-            type: string;
-          }[];
+      templateLanguage: string;
+      components: {
+        body: {
+          text: string;
           type: string;
-        },
-      ];
+        }[];
+        
+      };
     };
   };
 }

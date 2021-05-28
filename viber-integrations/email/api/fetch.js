@@ -55,20 +55,16 @@ module.exports = async (_, response) => {
         const reply = mail.text.split("\n")[0];
         const sendMessage = {
           to: parsedSubject[1],
-          channels: ["viber"],
-          viber: {
-            from: process.env.VIBER_ID,
-            messagePurpose: "transaction",
-            components: [
-              {
-                type: "text",
+          from: process.env.VIBER_ID,
+          channel : "viber",
+          messagePurpose: "transaction",
+          content: {
+            contentType: "text",
                 text: reply
               }
-            ]
-          }
         };
         await axios.post(
-          "https://api.tyntec.com/chat-api/v2/messages",
+          "https://api.tyntec.com/conversations/v3/messages",
           sendMessage,
           tyntecApiHeaders
         );
