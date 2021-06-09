@@ -1,0 +1,14 @@
+{
+  "name": "whereby-whatsapp-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
