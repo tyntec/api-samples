@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Whereby demo</title>
+    <style>
+      body {
+        background-color: white;
+        margin: 20px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="/create-meeting" method="post">
+      <label for="phone_numbers">Phone numbers:</label>
+      <input
+        type="text"
+        id="phone_numbers"
+        name="phone_numbers"
+        placeholder="1234567890, 0987654321"
+      />
+      </br></br>
+
+      <label for="start_date">Start date:</label>
+      <input
+        type="datetime-local"
+        id="start_date"
+        name="start_date"
+      />
+      </br></br>
+
+      <label for="end_date">End date:</label>
+      <input
+        type="datetime-local"
+        id="end_date"
+        name="end_date"
+      />
+      </br></br>
+
+      <input type="submit" value="Create meeting" />
+    </form>
+  </body>
+</html>
