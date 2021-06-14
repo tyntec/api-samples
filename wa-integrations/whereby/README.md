@@ -1,6 +1,6 @@
 # tyntec-whereby-demo
 
-A sample Whereby-WhatsApp integration that allows WhatsApp sharing
+A sample Whereby-WhatsApp integration that allows sharing new Whereby meetings with your WhatsApp contacts.
 
 ## Requirements 
 * tyntec Conversations API key
@@ -26,6 +26,10 @@ npm install
     * WABA_NUMBER = “Your WhatsApp Business Account Number”
     * TEMPLATE_ID = “Your WhatsApp template ID”
     * TEMPLATE_LANGUAGE: “Your WhatsApp template language”
+1. Open the utils/mocks.js and update it with your fallback hardcoded phone numebers:
+```
+const mockedNumbers = ['123123123123', '123456789123', '111222333444'];
+```
 1. Run the server
 ```
 npm start
