@@ -51,7 +51,7 @@ async function createOrder (data) {
       res.phone = result.phone
     }
     if (res) {
-      await CMD.whatsAppNoteShopify(res)
+      await CMD.newNote(res, 'shopify')
     }
     return res
   } catch (e) {
