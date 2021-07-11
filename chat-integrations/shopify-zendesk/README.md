@@ -23,6 +23,6 @@ Read more in our [Quick Tutorial](https://www.tyntec.com/docs/support-inbox-inte
     - MONGO_URL -- optional MongoDB location (defaults to the local instance mongodb://127.0.0.1:27017)
     - PORT -- optional server port (defaults to 3000)
     - SHOPIFY_DOMAIN -- yourstore.myshopify.com
-    - Channel -- set it to `whatsapp` or `viber` if you don't select it, the app will use both channels.
+    - CHANNEL -- set it to `whatsapp` or `viber` if you don't select it, the app will use both channels.
 4. Start the app with `npm start`. For dev, use `nodemon server.js` instead.
 
