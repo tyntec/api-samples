@@ -17,7 +17,8 @@
     "dotenv": "^8.2.0",
     "eslint": "^7.4.0",
     "express": "^4.17.1",
-    "express-validator": "^6.6.0"
+    "express-validator": "^6.6.0",
+    "openid-client": "^4.7.4"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
