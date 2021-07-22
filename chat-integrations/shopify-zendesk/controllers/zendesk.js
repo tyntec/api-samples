@@ -9,7 +9,7 @@ async function createTicket (data) {
     const newTicket = new Zendesk(data)
     const res = await newTicket.save()
     if (res) {
-      await CMD.whatsAppNoteZendesk(res)
+      await CMD.newNote(res, 'zendesk')
     }
     return res
   } catch (e) {
