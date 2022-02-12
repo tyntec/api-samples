@@ -1,0 +1,20 @@
+{
+  "name": "tyntec-stripe-whatsapp-demo",
+  "version": "1.0.0",
+  "description": "A sample Stripe-WhatsApp integration that allows paying for products selected using WhatsApp.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyntec/api-samples.git"
+  },
+  "keywords": [
+    "stripe",
+    "whatsapp",
+    "tyntec"
+  ],
+  "author": "tyntec GmbH",
+  "license": "MIT"
+}
