@@ -1,0 +1,20 @@
+{
+  "name": "tyntec-calendly-whatsapp-demo",
+  "version": "1.0.0",
+  "description": "A sample Calendly-WhatsApp integration that sends notifications via WhatsApp.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyntec/api-samples.git"
+  },
+  "keywords": [
+    "calendly",
+    "whatsapp",
+    "tyntec"
+  ],
+  "author": "tyntec GmbH",
+  "license": "MIT"
+}

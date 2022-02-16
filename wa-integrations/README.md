@@ -2,6 +2,7 @@
 
 Collection of sample applications showcasing integrations with WhatsApp via tyntec Conversation API
 
+- calendly - integration with Calendly
 - dialogflow - integration with Dialogflow
 - email - simple mail proxy
 - freshdesk - integration with Freshdesk
