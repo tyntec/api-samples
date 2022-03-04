@@ -7,5 +7,6 @@ Collection of sample applications showcasing integrations with WhatsApp via tynt
 - freshdesk - integration with Freshdesk
 - hubspot - integration with HubSpot
 - magento - integration as a Magento 2 module
+- sentry - integration with Sentry
 - slack - integration with Slack
 - teamsbot - integration with Microsoft Teams
