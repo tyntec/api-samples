@@ -27,7 +27,7 @@ Router.post('/', async function (req, res) {
       return;
     } else if (req.body.text.startsWith('close')) {
       const name = req.body.text.replace('close ', '');
-      Contact.findOneAndUpdate({ name: name }, { $unset: { thread_ts: '' } }, function (err, doc) {
+      Contact.findOneAndUpdate({ name: name }, { $set: { thread_ts: 'no thread assigned' } }, function (err, doc) {
         if (err) {
           res.status(500).send('DB error');
           console.log('DB update error', err);
@@ -81,7 +81,6 @@ Router.post('/forwardSlackMessage', async function (req, res) {
     input.event.subtype ? input.event.subtype : '',
     input.event.bot_id ? 'bot (ignored)' : ''
   );
-
   // Slack event data -- combi of https://api.slack.com/events/message, https://api.slack.com/types/event
   // Message events
   if (input.event.type === 'message' && !input.event.bot_id) {

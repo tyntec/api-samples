@@ -26,10 +26,12 @@ const app = Express();
 
   // Connect to Mongoose database
   try {
+    
     await Mongoose.connect(appConfig.MONGO_URL, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true,
+      useCreateIndex : true
     });
     console.log('DB connected successfully');
     // Start the server
