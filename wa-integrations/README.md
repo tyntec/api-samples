@@ -8,4 +8,5 @@ Collection of sample applications showcasing integrations with WhatsApp via tynt
 - hubspot - integration with HubSpot
 - magento - integration as a Magento 2 module
 - slack - integration with Slack
+- stripe - integration with Stripe
 - teamsbot - integration with Microsoft Teams
