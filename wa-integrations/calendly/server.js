@@ -24,6 +24,7 @@ app.post('/', async function (req, res) {
     const getEventRequest = composeGetEventRequestAxiosConfig(CALENDLY_TOKEN, req.body.payload.event);
     const eventResponse = await axios(getEventRequest);
 
+    const startTime = new Date(eventResponse.data.resource.start_time).toLocaleString();
     const request = composeSendMessageRequestAxiosConfig(
         TYNTEC_API_KEY,
         {
@@ -38,7 +39,7 @@ app.post('/', async function (req, res) {
                     components: {
                         body: [
                             { type: 'text', text: eventResponse.data.resource.name },
-                            { type: 'text', text: eventResponse.data.resource.start_time }
+                            { type: 'text', text: startTime }
                         ]
                     }
                 }
