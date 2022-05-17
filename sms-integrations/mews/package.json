@@ -1,0 +1,20 @@
+{
+  "name": "tyntec-mews-sms-demo",
+  "version": "1.0.0",
+  "description": "A sample Mews-SMS integration that allows ordering products using SMS.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyntec/api-samples.git"
+  },
+  "keywords": [
+    "mews",
+    "sms",
+    "tyntec"
+  ],
+  "author": "tyntec GmbH",
+  "license": "MIT"
+}
