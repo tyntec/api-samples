@@ -1,4 +1,4 @@
-const { composeGetAllCustomersRequestAxiosConfig, composeGetAllReservationsRequestAxiosConfig } = require("./mews");
+const { composeGetAllCustomersRequestAxiosConfig, composeGetAllReservationsRequestAxiosConfig, composeSearchCustomersRequestAxiosConfig } = require("./mews");
 
 class CustomersService {
     constructor(axiosInstance, mewsPlatformAddress, mewsClientToken, mewsAccessToken, mewsClient) {
@@ -7,6 +7,26 @@ class CustomersService {
         this.mewsClientToken = mewsClientToken;
         this.mewsAccessToken = mewsAccessToken;
         this.mewsClient = mewsClient;
+    }
+
+    async getCustomersByPhones(phones) {
+        const request = composeSearchCustomersRequestAxiosConfig(
+            this.mewsPlatformAddress,
+            {
+                ClientToken: this.mewsClientToken,
+                AccessToken: this.mewsAccessToken,
+                Client: this.mewsClient,
+                Extent: {
+                    Customers: true,
+                    Documents: false,
+                    Addresses: false
+                }
+            }
+        );
+        const response = await this.axiosInstance.request(request);
+        return response.data.Customers
+            .filter(customer => phones.includes(customer.Customer.Phone))
+            .map(customer => customer.Customer);
     }
 
     async getCustomersByReservations(ReservationIds) {
