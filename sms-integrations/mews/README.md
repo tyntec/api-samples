@@ -10,6 +10,8 @@ A sample Mews-SMS integration that allows ordering products using SMS.
 * An integration configured in Mews Operations to receive reservation events.
 * A customer with a phone number in Mews.
 * At least two active products in Mews.
+* A mobile phone with a different phone number.
+* A public URL of this app (e.g. a URL generated via ngrok).
 
 ## Installation
 
@@ -34,5 +36,8 @@ npm install
 ```
 npm start
 ```
-3. Check-in a reservation in Mews.
-4. Voilà!
+3. Register the public URL as your SMS webhook.
+4. Check-in a reservation in Mews.
+5. Check your mobile phone for an incoming SMS.
+6. Send an SMS with an appropriate text to your tyntec SMS number.
+7. Voilà!
