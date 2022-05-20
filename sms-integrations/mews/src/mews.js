@@ -37,8 +37,22 @@ function composeGetAllReservationsRequestAxiosConfig(platformAddress, data) {
     };
 }
 
+function composeSearchCustomersRequestAxiosConfig(platformAddress, data) {
+    return {
+        method: 'post',
+        baseURL: platformAddress,
+        url: '/api/connector/v1/customers/search',
+        headers: {
+            'accept': 'application/json',
+            'content-type': 'application/json'
+        },
+        data
+    };
+}
+
 module.exports = {
     composeGetAllCustomersRequestAxiosConfig,
     composeGetAllProductsRequestAxiosConfig,
-    composeGetAllReservationsRequestAxiosConfig
+    composeGetAllReservationsRequestAxiosConfig,
+    composeSearchCustomersRequestAxiosConfig
 };
