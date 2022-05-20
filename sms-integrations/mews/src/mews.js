@@ -1,3 +1,16 @@
+function composeGetAllCustomersRequestAxiosConfig(platformAddress, data) {
+    return {
+        method: 'post',
+        baseURL: platformAddress,
+        url: '/api/connector/v1/customers/getAll',
+        headers: {
+            'accept': 'application/json',
+            'content-type': 'application/json'
+        },
+        data
+    };
+}
+
 function composeGetAllProductsRequestAxiosConfig(platformAddress, data) {
     return {
         method: 'post',
@@ -25,6 +38,7 @@ function composeGetAllReservationsRequestAxiosConfig(platformAddress, data) {
 }
 
 module.exports = {
+    composeGetAllCustomersRequestAxiosConfig,
     composeGetAllProductsRequestAxiosConfig,
     composeGetAllReservationsRequestAxiosConfig
 };
