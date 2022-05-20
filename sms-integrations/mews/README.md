@@ -28,6 +28,7 @@ npm install
   * `MEWS_PLATFORM_ADDRESS` - The base address of the Mews API, depends on environment.
   * `MEWS_SERVICE_ID` - The Mews Service ID of the product to be ordered.
   * `MEWS_WEBSOCKET_ADDRESS` - The base address for Mews WebSockets, depends on environment.
+  * `PORT` (optional) - Start an HTTP server listening for connections on the given port. Defaults to 3000.
   * `TYNTEC_API_KEY` - Your tyntec API key.
 2. Start the server
 ```

@@ -1,5 +1,6 @@
 const axios = require('axios');
 const dotenv = require('dotenv');
+const express = require('express');
 const ws = require('ws');
 const { ConversationsService } = require('./src/conversations');
 const { CustomersService } = require('./src/customers');
@@ -14,6 +15,7 @@ const { ProductsService } = require('./src/products');
     const MEWS_PLATFORM_ADDRESS = process.env.MEWS_PLATFORM_ADDRESS;
     const MEWS_SERVICE_ID = process.env.MEWS_SERVICE_ID;
     const MEWS_WEBSOCKET_ADDRESS = process.env.MEWS_WEBSOCKET_ADDRESS;
+    const PORT = process.env.PORT || 3000;
     const TYNTEC_API_KEY = process.env.TYNTEC_API_KEY;
 
     const axiosInstance = axios.create();
@@ -53,4 +55,10 @@ const { ProductsService } = require('./src/products');
             });
         }
     });
+
+    const app = express();
+
+    app.listen(PORT, () =>
+        console.log(`Server listening on port ${PORT}.`)
+    );
 })();
