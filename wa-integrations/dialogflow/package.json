@@ -8,7 +8,7 @@
     "axios": "^0.21.1",
     "dialogflow": "^0.14.0",
     "dotenv": "^8.2.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-joi-validation": "^4.0.3",
     "lodash": "^4.17.19"
   },
